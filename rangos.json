@@ -1,6 +1,6 @@
 {
   "rangos": {
-    "Valorant": "VAL_API",
+    "Valorant": "API_VALORANT",
     "League Of Legends": "Flex: Hierro III | Solo/Duo: Hierro IV",
     "TeamFight Tactics": "Duo: Plata II | Individual: Bronce I"
   },
