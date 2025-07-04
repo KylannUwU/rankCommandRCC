@@ -49,28 +49,40 @@ def obtener_rango():
     alias_map = datos.get("alias", {})
 
     def agregar_emote(juego, rango):
-        if rango == "API_VALORANT":
-            return "$(customapi https://splendid-groovy-feverfew.glitch.me/valorant/ap/Nolley/manrr?onlyRank=true)"
         emote = emotes.get(juego.lower(), "")
         return f"{rango} {emote}" if emote else rango
 
+    def obtener_contenido_externo(rango):
+        if rango.startswith("http://") or rango.startswith("https://"):
+            try:
+                r = requests.get(rango)
+                if r.ok:
+                    return r.text.strip()
+                else:
+                    return "❌ Error al obtener el rango externo."
+            except Exception as e:
+                return f"❌ Error externo: {e}"
+        return rango
+
     query_lower = query.lower()
 
-    # Buscar en alias
+    # Buscar alias
     for alias, juego_real in alias_map.items():
         if alias.lower() in query_lower:
-            rango = rangos.get(juego_real)
-            if rango:
-                return f"El rango de noli en {juego_real} ➜ {agregar_emote(juego_real, rango)} nolleySip"
+            rango_raw = rangos.get(juego_real)
+            if rango_raw:
+                rango_final = obtener_contenido_externo(rango_raw)
+                return f"El rango de noli en {juego_real} ➜ {agregar_emote(juego_real, rango_final)} nolleySip"
 
-    # Buscar nombre exacto del juego
-    for juego, rango in rangos.items():
+    # Buscar nombre del juego directamente
+    for juego, rango_raw in rangos.items():
         if juego.lower() in query_lower:
-            return f"El rango de noli en {juego} ➜ {agregar_emote(juego, rango)} nolleySip"
+            rango_final = obtener_contenido_externo(rango_raw)
+            return f"El rango de noli en {juego} ➜ {agregar_emote(juego, rango_final)} nolleySip"
 
     # Si nada coincide, mostrar todos
     respuesta = [
-        f"{j} ➜ {agregar_emote(j, r)}"
+        f"{j} ➜ {agregar_emote(j, obtener_contenido_externo(r))}"
         for j, r in rangos.items()
     ]
     return " | ".join(respuesta)
