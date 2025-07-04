@@ -1,0 +1,18 @@
+{
+  "rangos": {
+    "Valorant": "VAL_API",
+    "League Of Legends": "Flex: Hierro III | Solo/Duo: Hierro IV",
+    "TeamFight Tactics": "Duo: Plata II | Individual: Bronce I"
+  },
+  "emotes": {
+    "valorant": "nolleyPium",
+    "league of legends": "nolleyToxic",
+    "teamfight tactics": "nolleyBonk"
+  },
+  "alias": {
+    "lol": "League Of Legends",
+    "league": "League Of Legends",
+    "tft": "TeamFight Tactics",
+    "valo": "Valorant"
+  }
+}
