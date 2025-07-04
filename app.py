@@ -73,13 +73,13 @@ def obtener_rango():
             rango_raw = rangos.get(juego_real)
             if rango_raw:
                 rango_final = obtener_contenido_externo(rango_raw)
-                return f"El rango de noli en {juego_real} ➜ {agregar_emote(juego_real, rango_final)} nolleySip"
+                return f"El rango de noli en {juego_real} ➜ {agregar_emote(juego_real, rango_final)}"
 
     # Buscar nombre del juego directamente
     for juego, rango_raw in rangos.items():
         if juego.lower() in query_lower:
             rango_final = obtener_contenido_externo(rango_raw)
-            return f"El rango de noli en {juego} ➜ {agregar_emote(juego, rango_final)} nolleySip"
+            return f"El rango de noli en {juego} ➜ {agregar_emote(juego, rango_final)}"
 
     # Si nada coincide, mostrar todos
     respuesta = [
