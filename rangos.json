@@ -2,7 +2,8 @@
   "rangos": {
     "Valorant": "http://zabriddev.ddns.net/valorantapi/rank/nolley/manrr/latam/Noli?format=%7Brank%7D",
     "League Of Legends": "Flex: Hierro III | Solo/Duo: Hierro IV",
-    "TeamFight Tactics": "Duo: Plata II | Individual: Bronce I"
+    "TeamFight Tactics": "Duo: Plata II | Individual: Bronce I",
+    "tft": "Duo: Oro IV | Individual: Bronce I"
   },
   "emotes": {
     "valorant": "nolleyPium",
